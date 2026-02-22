@@ -9,26 +9,36 @@
 html{min-height:100%;min-height:100dvh}
 body{min-height:100%;min-height:100dvh;font-family:system-ui,sans-serif;font-size:clamp(14px,2vmin,17px);background:linear-gradient(180deg,#e8e8f0 0%,#d8dce8 50%,#e0dce4 100%);color:#3a3844;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 1rem;margin:0}
 .page{max-width:560px;width:100%;text-align:center}
-.hero{margin-bottom:2rem}
-.hero img{max-width:100%;height:auto;display:block;margin:0 auto;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.links{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;align-items:center;margin-top:1.5rem}
-.links a{color:#4a4860;text-decoration:none;padding:.5rem;border-radius:8px;transition:background .2s}
-.links a:hover{background:rgba(255,255,255,.6)}
+.page>:first-child{margin-bottom:2rem}
+.page>:first-child img{max-width:100%;height:auto;display:block;margin:0 auto;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.link{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;align-items:center;margin-top:1.5rem}
+.link > *{color:#4a4860;padding:.5rem;border-radius:8px}
+.link a{text-decoration:none;transition:background .2s}
+.link a:hover{background:rgba(255,255,255,.6)}
+.link span{user-select:text}
 @media (max-width:480px){
-.links{grid-template-columns:1fr;gap:.5rem}
+.link{grid-template-columns:1fr;gap:.5rem}
 }
 </style>
 </head>
 <body>
 <div class="page">
-<div class="hero">
+<div>
 <img src="ufo-cow.jpg" alt="НЛО лучом поднимает корову" width="400" height="360">
 </div>
-<div class="links">
+<div class="link">
 <a href="https://t.me/GubernievS" target="_blank">Telegram</a>
-<a href="mailto:me@gubernievs.ru">Email</a>
+<a href="#" id="email">Email</a>
 <a href="https://github.com/GubernievS" target="_blank">GitHub</a>
 </div>
 </div>
+<script>
+document.getElementById('email').onclick=function(e){
+e.preventDefault();
+var span=document.createElement('span');
+span.textContent='me@gubernievs.ru';
+this.parentNode.replaceChild(span,this);
+};
+</script>
 </body>
 </html>
